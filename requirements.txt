@@ -1,0 +1,11 @@
+# requirements.txt – Librerías utilizadas en Duck Hunt
+# Generado: 2026-02-28
+#
+# Para instalar todas las dependencias:
+#   pip install -r requirements.txt
+
+mediapipe==0.10.32
+opencv-python==4.13.0.92
+pygame==2.6.1
+numpy==2.3.0
+flet==0.81.0
