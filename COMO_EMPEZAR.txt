@@ -1,0 +1,57 @@
+========================================================================
+             🦆 GUÍA PARA JUGAR DUCK HUNT (PARA PRINCIPIANTES) 🦆
+========================================================================
+
+¡Hola! Esta guía te ayudará a instalar y arrancar el juego paso a paso,
+aunque nunca hayas usado la terminal de comandos.
+
+------------------------------------------------------------------------
+PASO 1: INSTALAR PYTHON
+------------------------------------------------------------------------
+Para que el juego funcione, necesitas tener Python en tu computadora.
+
+1. Ve a https://www.python.org/downloads/
+2. Haz clic en el botón amarillo "Download Python 3.xx.x".
+3. Al abrir el instalador, ES MUY IMPORTANTE marcar la casilla que dice:
+   "[X] Add Python to PATH" (está abajo en la primera ventana).
+4. Dale a "Install Now" y espera a que termine.
+
+------------------------------------------------------------------------
+PASO 2: ABRIR LA TERMINAL EN LA CARPETA DEL JUEGO
+------------------------------------------------------------------------
+Ahora vamos a decirle a la computadora dónde está el juego.
+
+1. Abre la carpeta "DuckHunt" donde tienes todos los archivos.
+2. Haz clic en la "barra de direcciones" arriba (donde dice la ruta de
+   la carpeta, ej: C:\Usuarios\Nombre\Escritorio\DuckHunt).
+3. Borra lo que dice ahí, escribe la palabra: cmd
+4. Presiona la tecla ENTER. Se abrirá una ventana negra (la terminal).
+
+------------------------------------------------------------------------
+PASO 3: INSTALAR LOS COMPONENTES (DEPENDENCIAS)
+------------------------------------------------------------------------
+Copia y pega el siguiente código en la ventana negra y presiona ENTER:
+
+   pip install -r requirements.txt
+
+(Espera a que se descarguen y llenen unas barras de progreso. Cuando
+vuelva a aparecer el cursor parpadeando, ya terminó).
+
+------------------------------------------------------------------------
+PASO 4: ¡ARRANCAR EL JUEGO!
+------------------------------------------------------------------------
+Para abrir el menú de inicio del juego, escribe esto en la ventana negra
+y presiona ENTER:
+
+   python game/home.py
+
+------------------------------------------------------------------------
+🎮 CONTROLES DEL JUEGO
+------------------------------------------------------------------------
+- El juego usa tu CÁMARA para detectar tu mano.
+- MIRA: Mueve tu dedo índice para mover la mira en pantalla.
+- DISPARO: Dobla tu dedo pulgar (como haciendo una señal de OK o gatillo).
+- SALIR: Presiona la tecla 'Q' en el teclado.
+- REINICIAR: Presiona la tecla 'R' si pierdes.
+
+========================================================================
