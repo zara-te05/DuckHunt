@@ -59,12 +59,18 @@ font_big   = pygame.font.SysFont("Arial", 52, bold=True)
 font_small = pygame.font.SysFont("Arial", 20)
 
 # Fondo
-background = pygame.image.load(os.path.join(IMG_DIR, "fondo.png"))
+background = pygame.image.load(os.path.join(IMG_DIR, "fondo2.png"))
 background = pygame.transform.scale(background, (SCREEN_W, SCREEN_H))
 
 # Sonido
 pygame.mixer.init()
 sound_gun = pygame.mixer.Sound(os.path.join(SOUND_DIR, "gun.mp3"))
+
+background_music_path = os.path.join(SOUND_DIR, "music.mp3")
+pygame.mixer.music.load(background_music_path)
+pygame.mixer.music.play(loops=-1)  # -1 para loop infinito
+pygame.mixer.music.set_volume(0.15)
+
 
 # Import sprites
 from AvesSprites import AvesSprites

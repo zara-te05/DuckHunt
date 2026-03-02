@@ -30,7 +30,7 @@ def ctrl_row(icon: str, label: str, description: str) -> ft.Row:
 
 
 def main(page: ft.Page):
-    page.title            = "Duck Hunt – Inicio"
+    page.title            = "Tec Hunt – Inicio"
     page.window.width     = 600
     page.window.height    = 530
     page.window.resizable = False
@@ -54,23 +54,53 @@ def main(page: ft.Page):
         page.window.close()
 
     # ── Encabezado ────────────────────────────────────────────────────────────
+    # SOLUCIÓN 1: Usar raw string o forward slashes para la ruta
     header = ft.Column(
-        [
-            ft.Text("🦆", size=72, text_align=ft.TextAlign.CENTER),
-            ft.Text(
-                "DUCK HUNT",
-                size=40,
-                weight=ft.FontWeight.BOLD,
-                color=ACCENT,
-                text_align=ft.TextAlign.CENTER,
-            ),
-            ft.Text(
-                "Apunta con el dedo índice  ·  Dobla el pulgar para disparar",
-                size=13,
-                color=MUTED,
-                text_align=ft.TextAlign.CENTER,
-            ),
-        ],
+    [
+        # Fila para las 3 imágenes horizontales
+        ft.Row(
+            [
+                ft.Image(
+                    src=r"C:\Users\zarat\OneDrive\Desktop\DuckHunt\img\Aragon.png",
+                    width=80,
+                    height=80,
+                    fit="contain",
+                ),
+                ft.Image(
+                    src=r"C:\Users\zarat\OneDrive\Desktop\DuckHunt\img\Elda.png",
+                    width=80,
+                    height=80,
+                    fit="contain",
+                ),
+                ft.Image(
+                    src=r"C:\Users\zarat\OneDrive\Desktop\DuckHunt\img\Nancy.png",
+                    width=80,
+                    height=80,
+                    fit="contain",
+                ),
+            ],
+            alignment=ft.MainAxisAlignment.CENTER,  # Centrar horizontalmente
+            spacing=20,  # Espacio entre imágenes
+        ),
+        
+        # Espacio opcional entre imágenes y texto
+        ft.Container(height=10),
+        
+        # Textos
+        ft.Text(
+            "TEC HUNT",
+            size=40,
+            weight=ft.FontWeight.BOLD,
+            color=ACCENT,
+            text_align=ft.TextAlign.CENTER,
+        ),
+        ft.Text(
+            "Apunta con el dedo índice  ·  Dobla el pulgar para disparar",
+            size=13,
+            color=MUTED,
+            text_align=ft.TextAlign.CENTER,
+        ),
+    ],
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
         spacing=6,
     )
@@ -93,7 +123,7 @@ def main(page: ft.Page):
         padding=20,
     )
 
-    # ── Botón Iniciar — usa ft.Button (API 0.81+) ─────────────────────────────
+    # ── Botón Iniciar ─────────────────────────────────────────────────────────
     btn_play = ft.Button(
         content=ft.Row(
             [ft.Icon(ft.Icons.PLAY_ARROW, color=WHITE, size=18),
@@ -108,7 +138,7 @@ def main(page: ft.Page):
         height=50,
     )
 
-    # ── Botón Salir — contenedor estilizado para imitar outlined ─────────────
+    # ── Botón Salir ───────────────────────────────────────────────────────────
     btn_exit = ft.Container(
         content=ft.Text("Salir", color=RED, size=14, weight=ft.FontWeight.BOLD),
         width=140,
@@ -158,4 +188,4 @@ def main(page: ft.Page):
 
 
 if __name__ == "__main__":
-    ft.run(main)
+    ft.app(target=main, assets_dir="img")  # Importante: Especificar assets_dir
