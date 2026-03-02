@@ -46,18 +46,20 @@ def main(page: ft.Page):
         try:
             subprocess.Popen([sys.executable, MAIN_PATH], cwd=BASE_DIR)
             status_text.value = "✅ ¡Juego iniciado! Buena caza."
+            page.update()
+            page.window.minimized = True
+            page.update()
         except Exception as ex:
             status_text.value = f"❌ Error: {ex}"
-        page.update()
+            page.update()
 
-    def exit_app(e):
-        page.window.close()
+    async def exit_app(e):
+        # destroy() es una corutina en Flet 0.80+, necesita await
+        await page.window.destroy()
 
     # ── Encabezado ────────────────────────────────────────────────────────────
-    # SOLUCIÓN 1: Usar raw string o forward slashes para la ruta
     header = ft.Column(
     [
-        # Fila para las 3 imágenes horizontales
         ft.Row(
             [
                 ft.Image(
@@ -79,14 +81,10 @@ def main(page: ft.Page):
                     fit="contain",
                 ),
             ],
-            alignment=ft.MainAxisAlignment.CENTER,  # Centrar horizontalmente
-            spacing=20,  # Espacio entre imágenes
+            alignment=ft.MainAxisAlignment.CENTER,
+            spacing=20,
         ),
-        
-        # Espacio opcional entre imágenes y texto
         ft.Container(height=10),
-        
-        # Textos
         ft.Text(
             "TEC HUNT",
             size=40,
@@ -188,4 +186,4 @@ def main(page: ft.Page):
 
 
 if __name__ == "__main__":
-    ft.app(target=main, assets_dir="img")  # Importante: Especificar assets_dir
+    ft.app(main, assets_dir="img")
